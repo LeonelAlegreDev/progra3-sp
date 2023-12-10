@@ -8,7 +8,7 @@ class AccessLogging
     public function __invoke($request, $handler)
     {
         $data = [
-            'date' => $request->getRequestTime(),
+            'date' => time(),
             'method' => $request->getMethod(),
             'uri' => $request->getUri(),
             'ip' => $request->getRemoteAddress(),
