@@ -3,7 +3,7 @@
 use Slim\Psr7\Response;
 
 
-class AccessLoggin
+class AccessLogging
 {
     public function __invoke($request, $handler)
     {
