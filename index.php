@@ -90,7 +90,9 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 
 // Auth
 $app->group('/auth', function (RouteCollectorProxy $group) {  
+  $group->prependMiddleware(new AccessLogging());
+
   // POST
   $group->post('/login', \UsuarioController::class . ':Login');
-})->add(new AccessLogging());
+});
 $app->run();
