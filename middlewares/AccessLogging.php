@@ -16,7 +16,6 @@ class AccessLogging
         $log->user_agent = $request->getHeaderLine('User-Agent');
 
         try {
-            echo "Ejecutando AccessLogging";
             $log->PostNew();
         } catch (Exeption $ex) {
             throw $ex->message;

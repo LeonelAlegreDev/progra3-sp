@@ -13,7 +13,7 @@ class LogTransaccion
         $log->uri = $request->getUri();
 
         try {
-            echo "Ejecutando LogTransaccion";
+            echo "ejecutando LogTransaccion\n";
         } catch (Exeption $ex) {
             throw $ex->message;
         }

@@ -138,6 +138,7 @@ class ReservaController extends Reserva implements IApiUsable
     */
     public function TraerTodos($request, $response, $args)
     {
+        echo "ejecutando TraerTodos\n";
         // Obtiene los parámetros de la solicitud.
         $parametros = $request->getQueryParams();
 
