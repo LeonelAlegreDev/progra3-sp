@@ -32,8 +32,8 @@ class Log{
         $consulta->bindValue(':ip', $this->ip, PDO::PARAM_STR);
         $consulta->bindValue(':user_agent', $this->user_agent, PDO::PARAM_STR);
 
-        echo $consulta->queryString;
-
+        // $consulta->getBindableValues();
+        echo var_dump($consulta->getBindableValues());
         try{
             // Ejecuta la consulta.
             $consulta->execute();
