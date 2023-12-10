@@ -15,11 +15,11 @@ class AccessLogging
             'user_agent' => $request->getHeaderLine('User-Agent')   // work
         ];
 
-        echo $data["date"];
-        echo $data["method"];
-        echo $data["uri"];
-        echo $data["ip"];
-        echo $date["user_agent"];
+        echo $data["date"] . "\n";
+        echo $data["method"] ."\n";
+        echo $data["uri"] . "\n";
+        echo $data["ip"] . "\n";
+        echo $data["user_agent"] . "\n";
 
 
         return $handler->handle($request);
