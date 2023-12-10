@@ -22,7 +22,7 @@ class Log{
         // Prepara la consulta
         $consulta = $objAccesoDatos->prepararConsulta(
             "INSERT INTO logs (date, method, uri, ip, user_agent) 
-            VALUES (:date, STR_TO_DATE(:method, %d-%m-%Y %H:%i:%s), :uri, :ip, :user_agent)"
+            VALUES (:date, STR_TO_DATE(:method, '%d-%m-%Y %H:%i:%s'), :uri, :ip, :user_agent)"
         );
 
         // Vincula los valores de los parámetros de la consulta.
