@@ -15,7 +15,12 @@ class AccessLogging
             'user_agent' => $request->getHeaderLine('User-Agent')   // work
         ];
 
-        echo var_dump($data);
+        echo $data->date;
+        echo $data->method;
+        echo $data->uri;
+        echo $data->ip;
+        echo $date->user_agent;
+
 
         return $handler->handle($request);
     }
