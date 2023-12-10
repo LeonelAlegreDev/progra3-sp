@@ -19,6 +19,7 @@ require_once './controllers/ReservaController.php';
 require_once './controllers/UsuarioController.php';
 require_once './middlewares/AuthLevelOne.php';
 require_once './middlewares/AuthLevelTwo.php';
+require_once './middlewares/AccessLogginng.php';
 
 
 // Load ENV
@@ -91,5 +92,5 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 $app->group('/auth', function (RouteCollectorProxy $group) {  
   // POST
   $group->post('/login', \UsuarioController::class . ':Login');
-});
+})->add(new AccesLoggin.php());
 $app->run();
