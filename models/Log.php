@@ -22,7 +22,7 @@ class Log{
         // Prepara la consulta
         $consulta = $objAccesoDatos->prepararConsulta(
             "INSERT INTO logs (date, method, uri, ip, user_agent) 
-            VALUES (:date, STR_TO_DATE(:method, '%d-%m-%Y %H:%i:%s'), :uri, :ip, :user_agent)"
+            VALUES (STR_TO_DATE(:date, '%d-%m-%Y %H:%i:%s'), :method, :uri, :ip, :user_agent)"
         );
 
         // Vincula los valores de los parámetros de la consulta.
@@ -32,8 +32,6 @@ class Log{
         $consulta->bindValue(':ip', $this->ip, PDO::PARAM_STR);
         $consulta->bindValue(':user_agent', $this->user_agent, PDO::PARAM_STR);
 
-        // $consulta->getBindableValues();
-        echo var_dump($consulta->getBindableValues());
         try{
             // Ejecuta la consulta.
             $consulta->execute();
