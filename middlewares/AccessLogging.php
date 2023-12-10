@@ -12,8 +12,7 @@ class AccessLogging
             'method' => $request->getMethod(), // work
             'uri' => $request->getUri(),        // work
             'ip' => $request->getServerParams()['REMOTE_ADDR'],   // work
-            'user_agent' => $request->getHeaderLine('User-Agent'),   // not work
-            'result' => $response->getStatusCode(),
+            'user_agent' => $request->getHeaderLine('User-Agent')   // work
         ];
 
         echo var_dump($data);
