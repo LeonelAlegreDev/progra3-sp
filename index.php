@@ -19,7 +19,7 @@ require_once './controllers/ReservaController.php';
 require_once './controllers/UsuarioController.php';
 require_once './middlewares/AuthLevelOne.php';
 require_once './middlewares/AuthLevelTwo.php';
-require_once './middlewares/AccessLogginng.php';
+require_once './middlewares/AccessLogging.php';
 
 
 // Load ENV
