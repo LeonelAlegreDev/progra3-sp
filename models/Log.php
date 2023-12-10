@@ -11,7 +11,7 @@ class Log{
     public $user_agent;
 
     /**
-     *  Crea un nuevo Cliente en la base de datos.
+     *  Crea un nuevo Log en la base de datos.
      *  @return int El ID del nuevo registro.
      */
     public function PostNew()
