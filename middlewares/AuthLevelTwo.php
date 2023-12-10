@@ -34,6 +34,7 @@ class AuthLevelTwo
             return $response->withStatus(403);
         }
 
+        echo "Ejecutando AuthLevelTwo";
         return $handler->handle($request);
     }
 }

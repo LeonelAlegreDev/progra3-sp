@@ -20,7 +20,7 @@ require_once './controllers/UsuarioController.php';
 require_once './middlewares/AuthLevelOne.php';
 require_once './middlewares/AuthLevelTwo.php';
 require_once './middlewares/AccessLogging.php';
-
+require_once './middlewares/LogTransaccion.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -80,7 +80,7 @@ $app->group('/reservas', function (RouteCollectorProxy $group) {
 
   // Ajustar Reserva
   $group->post('/ajustar/{id}', \ReservaController::class . ':ModificarUno');
-})->add(new AuthLevelTwo())->add(new AccessLogging());
+})->add(new LogTransaccion())->add(new AuthLevelTwo())->add(new AccessLogging());
 
 // Usuarios
 $app->group('/usuarios', function (RouteCollectorProxy $group) {  
