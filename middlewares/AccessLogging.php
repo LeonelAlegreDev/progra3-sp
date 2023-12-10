@@ -11,7 +11,7 @@ class AccessLogging
             'date' => time(),
             'method' => $request->getMethod(), // work
             'uri' => $request->getUri(),        // work
-            'ip' => $request->getClientIp(),   // not work
+            'ip' => $request->getServerParams()['REMOTE_ADDR'],   // not work
             'user_agent' => $request->getHeaders()['User-Agent'] ?? null,
             'result' => $response->getStatusCode(),
         ];
