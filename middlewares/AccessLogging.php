@@ -9,9 +9,9 @@ class AccessLogging
     {
         $data = [
             'date' => time(),
-            'method' => $request->getMethod(),
-            'uri' => $request->getUri(),
-            'ip' => $request->getRemoteAddress(),
+            'method' => $request->getMethod(), // work
+            'uri' => $request->getUri(),        // work
+            'ip' => $request->getClientIp(),   // not work
             'user_agent' => $request->getHeaders()['User-Agent'] ?? null,
             'result' => $response->getStatusCode(),
         ];

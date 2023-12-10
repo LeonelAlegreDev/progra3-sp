@@ -6,6 +6,5 @@ CREATE TABLE logs (
   ip VARCHAR(15) NOT NULL,
   user_agent VARCHAR(255) NOT NULL,
   result INT NOT NULL,
-  response_time INT NOT NULL,
   PRIMARY KEY (id)
 ) AUTO_INCREMENT=1;
