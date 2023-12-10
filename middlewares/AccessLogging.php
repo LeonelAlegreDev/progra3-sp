@@ -1,27 +1,25 @@
 <?php
 
 use Slim\Psr7\Response;
+require_once './models/Log.php';
 
 
 class AccessLogging
 {
     public function __invoke($request, $handler)
     {
-        $data = [
-            'date' => date('d-m-Y H:i:s', time()),
-            'method' => $request->getMethod(), // work
-            'uri' => $request->getUri(),        // work
-            'ip' => $request->getServerParams()['REMOTE_ADDR'],   // work
-            'user_agent' => $request->getHeaderLine('User-Agent')   // work
-        ];
+        $log = new Log();
+        $log->date = date('d-m-Y H:i:s', time());
+        $log->method = $request->getMethod();
+        $log->uri = $request->getUri();
+        $log->ip = $request->getServerParams()['REMOTE_ADDR'];
+        $log->user_agent = $request->getHeaderLine('User-Agent');
 
-        echo $data["date"] . "\n";
-        echo $data["method"] ."\n";
-        echo $data["uri"] . "\n";
-        echo $data["ip"] . "\n";
-        echo $data["user_agent"] . "\n";
-
-
+        try {
+            $log->PostNew();
+        } catch (Exeption $ex) {
+            throw $ex->message;
+        }
         return $handler->handle($request);
     }
 }
