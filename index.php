@@ -43,7 +43,7 @@ $app->get('[/]', function (Request $request, Response $response) {
   
   $response->getBody()->write($payload);
   return $response->withHeader('Content-Type', 'application/json');
-});
+})->add(new AccessLogging());
 
 // Clientes
 $app->group('/clientes', function (RouteCollectorProxy $group) {
@@ -59,7 +59,7 @@ $app->group('/clientes', function (RouteCollectorProxy $group) {
   // POST Eliminar Cliente
   $group->delete('/{id}', \ClienteController::class . ':BorrarUno')->add(new AuthLevelOne());
 
-});
+})->add(new AccessLogging());
 
 // Reservas
 $app->group('/reservas', function (RouteCollectorProxy $group) {
@@ -80,19 +80,17 @@ $app->group('/reservas', function (RouteCollectorProxy $group) {
 
   // Ajustar Reserva
   $group->post('/ajustar/{id}', \ReservaController::class . ':ModificarUno');
-})->add(new AuthLevelTwo());
+})->add(new AuthLevelTwo())->add(new AccessLogging());
 
 // Usuarios
 $app->group('/usuarios', function (RouteCollectorProxy $group) {  
   // POST Alta Usuarios
   $group->post('[/]', \UsuarioController::class . ':CargarUno');
-});
+})->add(new AccessLogging());
 
 // Auth
 $app->group('/auth', function (RouteCollectorProxy $group) {  
-  $group->prependMiddleware(new AccessLogging());
-
   // POST
   $group->post('/login', \UsuarioController::class . ':Login');
-});
+})->add(new OtherMiddleware());
 $app->run();
