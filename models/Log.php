@@ -32,6 +32,8 @@ class Log{
         $consulta->bindValue(':ip', $this->ip, PDO::PARAM_STR);
         $consulta->bindValue(':user_agent', $this->user_agent, PDO::PARAM_STR);
 
+        echo $consulta;
+
         try{
             // Ejecuta la consulta.
             $consulta->execute();
