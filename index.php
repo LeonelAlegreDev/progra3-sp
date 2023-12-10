@@ -92,5 +92,5 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 $app->group('/auth', function (RouteCollectorProxy $group) {  
   // POST
   $group->post('/login', \UsuarioController::class . ':Login');
-})->add(new AccessLogging.php());
+})->add(new AccessLogging());
 $app->run();
