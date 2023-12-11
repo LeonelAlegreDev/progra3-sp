@@ -81,9 +81,9 @@ $app->group('/reservas', function (RouteCollectorProxy $group) {
   // Ajustar Reserva
   $group->post('/ajustar/{id}', \ReservaController::class . ':ModificarUno');
 
-  $group->after(new LogTransaccion());
 // })->add(new LogTransaccion())->add(new AuthLevelTwo())->add(new AccessLogging());
 })->add(new AuthLevelTwo())->add(new AccessLogging());
+//Ver LogTransaccion
 
 // Usuarios
 $app->group('/usuarios', function (RouteCollectorProxy $group) {  
